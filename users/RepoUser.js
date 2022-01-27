@@ -1,8 +1,11 @@
+const jwt = require("jsonwebtoken");
+
 module.exports = class RepoUser{
-    constructor(username, password, isAdmin){
+    constructor(username, password, isAdmin, uuid){
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+        this.uuid = uuid;
     }
 
     isAdmin(){
@@ -15,5 +18,16 @@ module.exports = class RepoUser{
     
     getHashedPassword(){
         return this.password;
+    }
+
+    getUUID(){
+        return this.uuid;
+    }
+
+    toJsonWebToken(){
+        return jwt.sign({
+            "username" : this.getUserName(),
+            "uuid" : this.getUUID()
+        }, "JDOJhio87HgfUU86%jh");
     }
 }

@@ -17,6 +17,8 @@ Maven repo for admin and developers
 - cookie-parser (Parse cookie through ExpressJS)
 - body-parser (Parse body through ExpressJS)
 - HashMap (HashMap on NodeJS like Java)
+- jsonwebtoken (Create Json Web Token)
+- uuid (User Unique ID)
 
 # Informations
 - Uploader: Admins
@@ -27,3 +29,4 @@ Maven repo for admin and developers
 - Using json file to create repo and dependences
 - Admin Panel
 - Port: 9087
+- Default admin password: 123
