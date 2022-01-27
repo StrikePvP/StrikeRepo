@@ -1,0 +1,21 @@
+{
+  "name": "strikerepo",
+  "version": "1.0.0",
+  "description": "Repo for StrikePvP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shineeeeeuh",
+  "license": "ISC",
+  "dependencies": {
+    "basic-auth": "^2.0.1",
+    "body-parser": "^1.19.1",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "express": "^4.17.2",
+    "fs": "0.0.1-security",
+    "multer": "^1.4.4",
+    "pug": "^3.0.2"
+  }
+}
