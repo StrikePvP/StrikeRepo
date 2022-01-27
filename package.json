@@ -15,6 +15,7 @@
     "crypto": "^1.0.1",
     "express": "^4.17.2",
     "fs": "0.0.1-security",
+    "hashmap": "^2.4.0",
     "multer": "^1.4.4",
     "pug": "^3.0.2"
   }

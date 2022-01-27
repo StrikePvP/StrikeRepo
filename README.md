@@ -16,6 +16,7 @@ Maven repo for admin and developers
 - crypto (MD5 Hash for Password)
 - cookie-parser (Parse cookie through ExpressJS)
 - body-parser (Parse body through ExpressJS)
+- HashMap (HashMap on NodeJS like Java)
 
 # Informations
 - Uploader: Admins
