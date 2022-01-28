@@ -5,3 +5,13 @@ html(lang='en')
         title="StrikeRepo | Login"
         link(rel="stylesheet", href="/css/semantic.min.css")
     body
+div(class="ui inverted segment")
+    div(class="ui inverted form")
+        form(action="/login", method="POST")
+            div(class="field")
+                label(for="username") Pseudo
+                input#username(type="text", name="username", placeholder="Pseudo")
+            div(class="field")
+                label(for="password") Mot de passe
+                input#password(type="password", name="password", placeholder="Mot de passe")
+            button(class="ui inverted red button", type="submit") Se connecter

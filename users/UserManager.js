@@ -10,7 +10,7 @@ module.exports = {
         const files = fs.readdirSync("./data/users").filter(file => file.endsWith('.json'));
         for(const file of files){
             const user = require("../data/users/"+file);
-            users.set(user.username, new RepoUser(user.username, user.password, user.isAdmin, user.uuid));
+            users.set(user.username, new RepoUser(user.username, user.password, user.hashed_password, user.isAdmin, user.uuid));
             console.log("Loaded user named "+user.username+" with UUID "+user.uuid);
         }
     },
@@ -19,10 +19,11 @@ module.exports = {
         const useruuid = UUID.v4();
         const md5 = crypto.createHash("md5");
         const pass = md5.update(password).digest("hex");
-        users.set(name, new RepoUser(name, pass, isAdmin, useruuid));
+        users.set(name, new RepoUser(name, password, pass, isAdmin, useruuid));
         const json = {
             "username" : name,
-            "password" : pass,
+            "password" : password,
+            "hashed_password" : pass,
             "uuid" : useruuid,
             "isAdmin" : isAdmin
         }

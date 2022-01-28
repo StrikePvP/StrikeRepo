@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
 
 module.exports = class RepoUser{
-    constructor(username, password, isAdmin, uuid){
+    constructor(username, password, hashed_password, isAdmin, uuid){
         this.username = username;
         this.password = password;
+        this.hashed_password = hashed_password;
         this.isAdmin = isAdmin;
         this.uuid = uuid;
     }
@@ -17,6 +18,10 @@ module.exports = class RepoUser{
     }
     
     getHashedPassword(){
+        return this.hashed_password;
+    }
+
+    getPassword(){
         return this.password;
     }
 
