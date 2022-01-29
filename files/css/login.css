@@ -1,0 +1,20 @@
+body {
+    background-color:#196bbd;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.inverted{
+    max-width: 50%;
+}
+
+.title{
+    font-family: "Roboto", sans-serif;
+    font-size: 50px;
+    color: #FFFF;
+}

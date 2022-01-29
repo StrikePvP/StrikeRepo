@@ -13,7 +13,14 @@ router.route("/login")
         if(req.body.username != null && req.body.password != null){
             if(UserManager.isExist(req.body.username)){
                 const user = UserManager.getUser(req.body.username);
-                if(user.getHashedPassword() == )
+                if(user.getHashedPassword() == crypto.createHash("md5").update(req.body.password).digest("hex")){
+                    res.cookie("token", user.toJsonWebToken())
+                    res.redirect("/")
+                }else{
+                    res.redirect("/login")
+                }
+            }else{
+                res.redirect("/login")
             }
         }else{
             res.redirect("/login")

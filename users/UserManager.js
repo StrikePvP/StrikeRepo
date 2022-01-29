@@ -4,6 +4,7 @@ const RepoUser = require("./RepoUser")
 const UUID = require("uuid");
 const crypto = require("crypto");
 const users = new HashMap();
+const jwt = require("jsonwebtoken");
 
 module.exports = {
     loadUsers(){
@@ -49,5 +50,36 @@ module.exports = {
 
     isExist(username){
         return users.has(username);
+    },
+
+    verifyCookie(cookie){
+        try{
+            const dt = jwt.verify(cookie, "JDOJhio87HgfUU86%jh");
+            if(this.isExist(dt.username)){
+                const user = this.getUser(dt.username);
+                if(dt.uuid = user.getUUID()){
+                    if(dt.hashed_password == user.getHashedPassword()){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }catch(e){
+            return false;
+        }
+    },
+
+    getUserFromToken(cookie){
+        try{
+            const dt = jwt.verify(cookie, "JDOJhio87HgfUU86%jh");
+            return this.getUser(dt.username)
+        }catch(e){
+            return null;
+        }
     }
 }

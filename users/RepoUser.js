@@ -32,7 +32,18 @@ module.exports = class RepoUser{
     toJsonWebToken(){
         return jwt.sign({
             "username" : this.getUserName(),
-            "uuid" : this.getUUID()
+            "uuid" : this.getUUID(),
+            "hashed_password" : this.getHashedPassword()
         }, "JDOJhio87HgfUU86%jh");
+    }
+
+    toJson(){
+        return {
+            "username" : this.username,
+            "password" : this.password,
+            "hashed_password" : this.hashed_password,
+            "uuid" : this.uuid,
+            "isAdmin" : this.isAdmin
+        }
     }
 }
