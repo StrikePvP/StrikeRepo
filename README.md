@@ -19,6 +19,7 @@ Maven repo for admin and developers
 - HashMap (HashMap on NodeJS like Java)
 - jsonwebtoken (Create Json Web Token)
 - uuid (User Unique ID)
+- moment (Get time moment)
 
 # Informations
 - Uploader: Admins

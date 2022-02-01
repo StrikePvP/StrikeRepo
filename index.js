@@ -4,11 +4,14 @@ const UserManager = require("./users/UserManager");
 var cookieParser = require('cookie-parser')
 const fs = require("fs")
 const bodyParser = require("body-parser");
+const RepositoryManager = require("./repository/RepositoryManager");
 
 console.log("Loading users...")
 UserManager.loadUsers();
 
 console.log("Loading repositories...")
+
+RepositoryManager.loadRepositories();
 
 console.log("Loading Website...");
 

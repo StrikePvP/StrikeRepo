@@ -5,7 +5,15 @@ const crypto = require("crypto");
 
 router.route("/login")
     .get((req,res) => {
-        res.render("login")
+        if(req.cookies["token"] != null){
+            if(UserManager.verifyCookie(req.cookies["token"])){
+                res.redirect("/")
+            }else{
+                res.render("login");
+            }
+        }else{
+            res.render("login");
+        }
     })
 
 router.route("/login")

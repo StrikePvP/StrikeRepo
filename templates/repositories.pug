@@ -1,0 +1,31 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title StrikeRepo | Repositories
+        link(rel="stylesheet", href="/css/semantic.min.css")
+        script(src="/js/utils.js")
+    body(style="background-color: #2c3e50;")
+
+div(class="ui inverted segment")
+    div(class="ui inverted secondary pointing menu")
+        a(class="item" href="/") Home
+        a(class="active item") Repositories 
+        if isAdmin
+            a(class="item" href="admin") Admin 
+        div(class="right menu")
+            a(class="item" href="logout") Log out
+
+table(class="ui selectable inverted table")
+    thead
+        tr
+            th Nom
+            th Dernière MAJ
+            th Ouvrir
+    tbody
+        each val, index in repositories
+            tr
+                td= index
+                td= val.last_update
+                td
+                    button(class="ui red button" onClick="redirect('repo/"+index+"')") Ouvrir                

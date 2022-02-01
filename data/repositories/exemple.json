@@ -1,7 +1,11 @@
 {
     "name": "exemple",
-    "access" : [
-        "shine"
-    ],
-    "onlyAdmin": false
+    "onlyAdmin": false,
+    "last_update" : "31 January 2021, 16h13",
+    "artefacts" : {
+        "StrikeAPI" : {
+            "package" : "io.shine.strikeapi",
+            "version" : 2.0
+        }
+    }
 }

@@ -2,5 +2,21 @@ doctype
 html(lang='en')
     head
         meta(charset='utf-8')
-        title
+        title StrikeRepo | Panel
+        link(rel="stylesheet", href="/css/semantic.min.css")
+        link(rel="stylesheet", href="/css/home.css")
+        script(src="/js/utils.js")
     body
+
+div(class="ui inverted segment")
+    div(class="ui inverted secondary pointing menu")
+        a(class="active item") Home
+        a(class="item" href="repos") Repositories 
+        if isAdmin
+            a(class="item" href="admin") Admin 
+        div(class="right menu")
+            a(class="item" href="logout") Log out
+
+h2(class="title") StrikeRepo
+p(class="subtitle") StrikePvP's Repo for developper
+button(class="ui huge orange button" style="margin-left:41.5%; margin-top: 5%;" onClick="redirect('repos')") Go to repositories
