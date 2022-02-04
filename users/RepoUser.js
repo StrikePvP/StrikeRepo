@@ -69,4 +69,18 @@ module.exports = class RepoUser{
         }
         return json;
     }
+
+    toJsonWithRepo(repo){
+        var json = {
+            "username" : this.username,
+            "password" : this.password,
+            "hashed_password" : this.hashed_password,
+            "uuid" : this.uuid,
+            "isAdmin" : this.isAdmin,
+            "repo" : {}
+        };
+        var repo = RepositoryManager.getRepo(repo);
+        json["repo"] = repo.toJson();
+        return json;
+    }
 }

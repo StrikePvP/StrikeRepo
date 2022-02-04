@@ -11,6 +11,14 @@ module.exports = {
     getAdminRepositories(){
         return repositories.values();
     },
+
+    getRepo(repo){
+        return repositories.get(repo)
+    },
+
+    isExist(repo){
+      return repositories.keys().includes(repo)  
+    },
     
     loadRepositories(){
         const files = fs.readdirSync("./data/repositories").filter(file => file.endsWith('.json'));

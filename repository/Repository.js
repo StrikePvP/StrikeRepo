@@ -15,7 +15,9 @@ module.exports = class Repository {
 
     addArtefact(name, version, artefact_package){
         this.artefacts.set(name, {
+            "name" : name,
             "package" : artefact_package,
+            "splited_package" : artefact_package.split("."),
             "version" : version
         })
     }
@@ -50,5 +52,9 @@ module.exports = class Repository {
             }
         }
         return json;
+    }
+
+    getJSONArtefact(artefact){
+        return this.artefacts.get(artefact);
     }
 }
