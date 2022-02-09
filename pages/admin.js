@@ -57,7 +57,7 @@ router.get("/admin/repo", (req, res) => {
 })
 
 router.post("/admin/add_repo", (req, res) => {
-    if(req.fields.name && req.fields.onlyadmin) RepositoryManager.createRepo(req.fields.name, req.fields.onlyadmin == "on");
+    if(req.fields.name) RepositoryManager.createRepo(req.fields.name, req.fields.onlyadmin == "on");
     res.redirect("/")
 })
 
@@ -78,7 +78,7 @@ router.get("/admin/users", (req, res) => {
 })
 
 router.post("/admin/add_user", (req, res) => {
-    if(req.fields.username && req.fields.password && req.fields.isadmin) UserManager.createUser(req.fields.username, req.fields.password, req.fields.isadmin == "on");
+    if(req.fields.username && req.fields.password) UserManager.createUser(req.fields.username, req.fields.password, req.fields.isadmin == "on");
     res.redirect("/admin/users")
 })
 
