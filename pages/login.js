@@ -18,10 +18,10 @@ router.route("/login")
 
 router.route("/login")
     .post((req,res) => {
-        if(req.body.username != null && req.body.password != null){
-            if(UserManager.isExist(req.body.username)){
-                const user = UserManager.getUser(req.body.username);
-                if(user.getHashedPassword() == crypto.createHash("md5").update(req.body.password).digest("hex")){
+        if(req.fields.username != null && req.fields.password != null){
+            if(UserManager.isExist(req.fields.username)){
+                const user = UserManager.getUser(req.fields.username);
+                if(user.getHashedPassword() == crypto.createHash("md5").update(req.fields.password).digest("hex")){
                     res.cookie("token", user.toJsonWebToken())
                     res.redirect("/")
                 }else{

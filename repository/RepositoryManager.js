@@ -2,6 +2,7 @@ const HashMap = require("hashmap");
 const repositories = new HashMap();
 const Repository = require("./Repository");
 const fs = require("fs")
+const moment = require("moment")
 
 module.exports = {
     getRepositories(){
@@ -35,5 +36,18 @@ module.exports = {
             repositories.set(repo.getName(), repo)
         }
 
+    },
+
+    createRepo(name, onlyadmin){
+        const repo = new Repository(name, onlyadmin, moment().format("dddd MMMM YYYY, h:mm").toString());
+        repo.save();
+        repositories.set(name, repo)
+    },
+
+    removeRepo(name){
+        if(repositories.has(name)){
+            repositories.delete(name)
+            fs.unlinkSync("./data/repositories/"+name+".json")
+        }
     }
 }

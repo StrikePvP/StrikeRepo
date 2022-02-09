@@ -1,0 +1,15 @@
+.title{
+    margin-top: 1%;
+    text-align: center;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 400%;
+    color: #ecf0f1;
+}
+
+.info{
+    margin-top:-3%;
+    font-size: 200%;
+    color: #ecf0f1;
+    text-align: center;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}

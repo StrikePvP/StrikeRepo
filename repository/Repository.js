@@ -57,4 +57,9 @@ module.exports = class Repository {
     getJSONArtefact(artefact){
         return this.artefacts.get(artefact);
     }
+
+    save(){
+        this.lastUpdate = moment().format("dddd MMMM YYYY, h:mm").toString()
+        fs.writeFileSync("./data/repositories/"+this.name+".json", JSON.stringify(this.toJson()))
+    }
 }

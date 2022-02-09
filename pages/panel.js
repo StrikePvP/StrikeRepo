@@ -1,22 +1,27 @@
 const express = require('express');
 const RepositoryManager = require('../repository/RepositoryManager');
 const router = express.Router()
-const UserManager = require("../users/UserManager")
+const UserManager = require("../users/UserManager");
 const basicAuth = require("basic-auth");
 const crypto = require("crypto")
 const fs = require("fs");
 
 var auth = function (req, res, next){
     var user = basicAuth(req)
+    var isAdmin = false;
+    if(RepositoryManager.isExist(req.params.repo)){
+        var repo = RepositoryManager.getRepo(req.params.repo);
+        isAdmin = repo.isAdmin();
+    }
     if(!user || !user.name || !user.pass){
         res.set("WWW-Authenticate", "Basic realm=Authorization Required");
         res.sendStatus(401);
     }else{
-        if(UserManager.verifyCreditials(user.name, crypto.createHash("md5").update(user.pass).digest("hex"))){
+        if(UserManager.verifyCreditials(user.name, crypto.createHash("md5").update(user.pass).digest("hex"), isAdmin)){
             next();
         }else{
             res.set("WWW-Authenticate", "Basic realm=Authorization Required");
-            res.sendStatus(401); 
+            res.sendStatus(401);
         }
     }
 }

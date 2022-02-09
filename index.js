@@ -3,7 +3,7 @@ const app = express();
 const UserManager = require("./users/UserManager");
 var cookieParser = require('cookie-parser')
 const fs = require("fs")
-const bodyParser = require("body-parser");
+const formidable = require('express-formidable');
 const RepositoryManager = require("./repository/RepositoryManager");
 
 console.log("Loading users...")
@@ -20,7 +20,11 @@ app.set('view engine', 'pug');
 
 app.use(express.static('files'));
 app.use(cookieParser())
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(formidable({
+    encoding: 'utf-8',
+    multiples: true,
+    keepExtensions: true
+}));
 
 
 const files = fs.readdirSync("./pages/").filter(file => file.endsWith('.js'));

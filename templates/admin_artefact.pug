@@ -1,0 +1,96 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title StrikeRepo | Admin Artefact
+        link(rel="stylesheet", href="/css/semantic.min.css")
+        link(rel="stylesheet", href="/css/home.css")
+        script(src="/js/jquery.js")
+        script(src="/js/utils.js")
+        script(src="/js/semantic.js")
+
+div(class="ui inverted segment")
+    div(class="ui inverted secondary pointing menu")
+        a(class="item" href="./") Repositories
+        a(class="active item") Add Artefact
+        a(class="item", href="repo") Create Repo
+        a(class="item", href="users") Manage Users
+        div(class="right menu")
+            a(class="item" href="../") Back
+
+section(class="centerform")
+    div(class="ui inverted segment")
+        div(class="ui inverted form")
+            form(action="./add_artefact", method="POST", enctype="multipart/form-data")
+                div(class="field ui selection dropdown")
+                    input(type="hidden" name="repository")
+                    i(class="dropdown icon")
+                    div(class="default text") Repository
+                    div(class="menu")
+                        each val, index in repositories
+                            div(class="item" data-value=index)=index
+                div(class="field")
+                    input#package(type="text", name="package", placeholder="Package")
+                div(class="field")
+                    input#name(type="text", name="name", placeholder="Name")
+                div(class="field")
+                    input#version(type="text", name="version", placeholder="Version")
+                div(class="field")
+                    input#file(type="file", name="file", accept=".jar")
+                button(class="ui inverted purple button", type="submit") Upload
+script.
+    $('.ui.selection.dropdown')
+        .dropdown({
+            clearable: true
+        });
+    $('form')
+        .form({
+            on: 'blur',
+            fields : {
+                repo: {
+                    identifier : 'repository',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt : 'Incorrect Repo !'
+                        }
+                    ]
+                },
+                package: {
+                    identifier : 'package',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt : 'Empty Package !'
+                        }
+                    ]
+                },
+                version: {
+                    identifier : 'version',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt : 'Incorrect version !'
+                        }
+                    ]
+                },
+                name: {
+                    identifier : 'name',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt : 'Incorrect name !'
+                        }
+                    ]
+                },
+                file: {
+                    identifier : 'file',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt : 'No File'
+                        }
+                    ]
+                }
+            }
+        });

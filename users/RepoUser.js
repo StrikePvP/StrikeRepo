@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const RepositoryManager = require("../repository/RepositoryManager")
-
 module.exports = class RepoUser{
     constructor(username, password, hashed_password, isAdmin, uuid){
         this.username = username;
@@ -83,4 +82,5 @@ module.exports = class RepoUser{
         json["repo"] = repo.toJson();
         return json;
     }
+
 }

@@ -1,0 +1,32 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title StrikeRepo | Admin Repos
+        link(rel="stylesheet", href="/css/semantic.min.css")
+        link(rel="stylesheet", href="/css/home.css")
+        script(src="/js/utils.js")
+    body
+
+div(class="ui inverted segment")
+    div(class="ui inverted secondary pointing menu")
+        a(class="active item") Repositories
+        a(class="item", href="artefacts") Add Artefact
+        a(class="item", href="repo") Create Repo
+        a(class="item", href="users") Manage Users
+        div(class="right menu")
+            a(class="item" href="../") Back
+
+table(class="ui selectable inverted table")
+    thead
+        tr
+            th Nom
+            th Dernière MAJ
+            th Supprimer
+    tbody
+        each val, index in repositories
+            tr
+                td= index
+                td= val.last_update
+                td
+                    button(class="ui red button" onClick="redirect('admin/delete_repo/"+index+"')") Supprimer ?

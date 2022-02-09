@@ -32,10 +32,19 @@ module.exports = {
         fs.writeFileSync('./data/users/'+name+".json", JSON.stringify(json));
     },
 
-    verifyCreditials(username, password){
+    verifyCreditials(username, password, isAdmin = false){
         if(this.isExist(username)){
-            if(this.getUser(username).getHashedPassword() == password){
-                return true;
+            var user = this.getUser(username);
+            if(user.getHashedPassword() == password){
+                if(isAdmin){
+                    if(user.isAdmin){
+                        return true
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return true;
+                }
             }else{
                 return false;
             }
@@ -82,4 +91,15 @@ module.exports = {
             return null;
         }
     },
-}
+
+    getUsers(){
+        return users;
+    },
+
+    removeUser(username){
+        if(this.isExist(username)){
+            users.delete(username)
+            fs.unlinkSync("./data/users/"+username+".json")
+        }
+    }
+};

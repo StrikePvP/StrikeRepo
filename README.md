@@ -4,18 +4,18 @@ Maven repo for admin and developers
 - Développeur : Shineeeeeuh
 - Concernés pour : Admin et Dev
 - Date de commencement: 27/01/2022
+- Première version: 09/02/2022
 - Lier: Maven
 - Type: Site Web
 
 # Packages
 - ExpressJS (Web)
-- Multer (File uploader)
+- Formidable (File uploader)
 - FS (Read and write files)
 - Pug (Template Engine for ExpressJS)
 - basic-auth (Auth for ExpressJS)
 - crypto (MD5 Hash for Password)
 - cookie-parser (Parse cookie through ExpressJS)
-- body-parser (Parse body through ExpressJS)
 - HashMap (HashMap on NodeJS like Java)
 - jsonwebtoken (Create Json Web Token)
 - uuid (User Unique ID)
