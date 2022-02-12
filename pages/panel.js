@@ -11,7 +11,7 @@ var auth = function (req, res, next){
     var isAdmin = false;
     if(RepositoryManager.isExist(req.params.repo)){
         var repo = RepositoryManager.getRepo(req.params.repo);
-        isAdmin = repo.isAdmin();
+        isAdmin = repo.isAdmin;
     }
     if(!user || !user.name || !user.pass){
         res.set("WWW-Authenticate", "Basic realm=Authorization Required");
