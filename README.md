@@ -29,5 +29,5 @@ Maven repo for admin and developers
     - Admin REPO
 - Using json file to create repo and dependences
 - Admin Panel
-- Port: 9087
+- Port: 8087
 - Default admin password: 123

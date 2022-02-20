@@ -41,7 +41,7 @@ router.post("/admin/add_artefact", (req, res) => {
             }
         })
         const pom = fs.readFileSync("./data/template/pom.xml").toString().replace("%p%", req.fields.package).replace("%n%", req.fields.name).replace("%v%", req.fields.version)
-        fs.writeFile(folder+"/"+req.fields.name+"-"+req.fields.version+".pom.xml", pom, (err) => {
+        fs.writeFile(folder+"/"+req.fields.name+"-"+req.fields.version+".pom", pom, (err) => {
             if(err){
                 console.log(err);
             }
