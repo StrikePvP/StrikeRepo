@@ -1,3 +1,5 @@
+<h1 align="center">THIS REPO IS AN OLD ARCHIVE OF A PROJECT</h1>
+
 # StrikeRepo
 Maven repo for admin and developers
 
