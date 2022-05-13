@@ -1,4 +1,6 @@
 <h1 align="center">THIS REPO IS AN OLD ARCHIVE OF A PROJECT</h1>
+<h1 align="center">NO SUPPORT FOR THIS ARCHIVE</h1>
+
 
 # StrikeRepo
 Maven repo for admin and developers
@@ -9,6 +11,15 @@ Maven repo for admin and developers
 - Première version: 09/02/2022
 - Lier: Maven
 - Type: Site Web
+
+# Install
+First, clone the repo
+```git clone https://github.com/StrikePvP/StrikeRepo.git```
+Launch the project
+```node index```
+Here we go the url of your website is
+```[DOMAIN]:8087```
+(PS: Default Admin Password: 123)
 
 # Packages
 - ExpressJS (Web)
