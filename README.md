@@ -1,7 +1,3 @@
-<h1 align="center">THIS REPO IS AN OLD ARCHIVE OF A PROJECT</h1>
-<h1 align="center">NO SUPPORT FOR THIS ARCHIVE</h1>
-
-
 # StrikeRepo
 Maven repo for admin and developers
 
