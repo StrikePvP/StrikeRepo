@@ -5,3 +5,4 @@
 <groupId>%p%</groupId>
 <artifactId>%n%</artifactId>
 <version>%v%</version>
+</project>
